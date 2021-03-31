@@ -1,10 +1,12 @@
 第三次实验报告
 
+
 实验环境
 
 虚拟机：Virtualbox Ubuntu 20.04 Server 64bit
 
 软件环境：asciinema，Windows10--cmd
+
 
 录制的操作视频：
 
@@ -26,7 +28,9 @@
 
 实战篇:[![asciicast](https://asciinema.org/a/UfILbAixmN8Pf5xEn6mlEBmK9.svg)](https://asciinema.org/a/UfILbAixmN8Pf5xEn6mlEBmK9)
 
+
 自查清单
+
 
 1.如何添加一个用户并使其具备sudo执行程序的权限？
 
@@ -36,9 +40,11 @@ sudo adduser xzl
 
 sudo usermod -G sudo -a xzl
 
+
 2.如何将一个用户添加到一个用户组？
 
 usermod -a -G groupname username
+
 
 3.如何查看当前系统的分区表和文件系统详细信息？
 
@@ -49,6 +55,7 @@ fdisk -l和gsidk -l 可以显示出所有挂载和未挂载的分区，但不显
 parted -l 可以查看未挂载的文件系统类型，以及哪些分区尚未格式化。大于2TB分区支持使用此
 
 lsblk -f 也可以查看未挂载的文件系统类型
+
 
 4.如何实现开机自动挂载Virtualbox的共享目录分区？
 
@@ -63,6 +70,7 @@ lsblk -f 也可以查看未挂载的文件系统类型
 修改 /etc/fstab 文件 在文末添加[Windows共享文件夹名称] /mnt/dirname/ vboxsf 
 
 defaults 0 0即可完成开机自动挂载
+
 
 5.基于LVM（逻辑分卷管理）的分区如何实现动态扩容和缩减容量？
 
@@ -79,6 +87,7 @@ lvextend -L size
 lvresize --size -{{120G}} --resizefs {{volume_group}}/{{logical_volume}}
 
 lvreduce -L size
+
 
 6.如何通过systemd设置实现在网络连通时运行一个指定脚本，在网络断开时运行另一个脚本？
 
@@ -102,6 +111,7 @@ sudo systemctl daemon-reload
 
 sudo systemctl restart systemd-neworkd.service
 
+
 7.如何通过systemd设置实现一个脚本在任何情况下被杀死之后会立即重新启动？实现杀不死？
 
 修改配置文件[service]区块，将restart设置为always
@@ -114,11 +124,13 @@ Restart = always
 
 重新启动服务sudo systemctl restart ××××
 
+
 实验中遇到的问题；
 
 1.当你的虚拟机内没有bluetooth.service或是httpd.service,我们自己可以灵活运用我们虚拟机内的其他service文件，比如说：ufw.service等。
 
 2.在写设置时区与时间的代码时，要记得关闭计算机系统的自动校验时间功能，否者代码会无法运行。
+
 
 参考资料
 
