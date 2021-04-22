@@ -7,7 +7,7 @@ function help_file
        echo "-d        统计不同响应状态码的出现次数和对应百分比"
        echo "-e        分别统计不同4XX状态码对应的TOP 10 URL和对应出现的总次数"
        echo "-f URL    给定URL输出TOP 100访问来源主机"
-	echo "-h        获取帮助信息"
+       echo "-h        获取帮助信息"
 }
 
 function get_Top100()
