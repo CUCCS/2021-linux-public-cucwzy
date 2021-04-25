@@ -75,13 +75,13 @@ function get_position()
 	avg2=$(echo "scale=2; $Defender_number*100/$player_number" | bc -l)
 	avg3=$(echo "scale=2; $Midfielder_number*100/$player_number" | bc -l)
 	avg4=$(echo "scale=2; $Forward_number*100/$player_number" | bc -l)
-    number5=$(echo "scale=2;$player_number-$Goalie_number-$Defender_number-$Midfielder_number-$Forward_number " | bc -l)
-    avg5=$(echo "scale=2; $number5*100/$player_number" | bc -l)
-    echo "Goalie位置的人数与比例分别为: ${Goalie_number}和${avg1}%"
+        number5=$(echo "scale=2;$player_number-$Goalie_number-$Defender_number-$Midfielder_number-$Forward_number " | bc -l)
+        avg5=$(echo "scale=2; $number5*100/$player_number" | bc -l)
+        echo "Goalie位置的人数与比例分别为: ${Goalie_number}和${avg1}%"
 	echo "Defender位置的人数与比例分别为: ${Defender_number}和${avg2}%"
 	echo "Midfielder位置的人数与比例分别为: ${Midfielder_number}和${avg3}%"
 	echo "Forward位置的人数与比例分别为: ${Forward_number}和${avg4}%"  
-    echo "Défenseur位置的人数与比例分别为: ${number5}和${avg5}%" 
+        echo "Défenseur位置的人数与比例分别为: ${number5}和${avg5}%" 
 
 }
 function get_longest_shortest()
@@ -89,7 +89,7 @@ function get_longest_shortest()
 	number=0
 	allname=$( awk -F '\t' '{print length($9)}' worldcupplayerinfo.tsv)
 
-    longestname_length=0
+        longestname_length=0
 	shortestname_length=10
 
 	for i in $allname
@@ -100,12 +100,12 @@ function get_longest_shortest()
            fi
 	done
 
-    for i in $allname
-    do 
-        let number=number+1
+        for i in $allname
+        do 
+                let number=number+1
 		   if [ $i -lt $shortestname_length ];
            then shortestname_length=$i
-		   fi
+           fi
 	done
 
 	longestname=$(awk -F '\t' 'length($9)=='$longestname_length' {print $9}' worldcupplayerinfo.tsv)
@@ -119,9 +119,9 @@ function get_oldest_youngest()
 {
 	number=0
 	allage=$(awk -F '\t' '{print $6}' worldcupplayerinfo.tsv)
-    allname=$(awk -F '\t' '{print $9}' worldcupplayerinfo.tsv)	
+        allname=$(awk -F '\t' '{print $9}' worldcupplayerinfo.tsv)	
 	
-    oldestage=0
+        oldestage=0
 	youngestage=1000
 	
 	for i in $allage
@@ -140,7 +140,7 @@ function get_oldest_youngest()
         fi
 	done
 
-    echo "年龄最大的球员是:$oldestname,他的年龄是:$oldestage岁。"
+        echo "年龄最大的球员是:$oldestname,他的年龄是:$oldestage岁。"
 	echo "年龄最小的球员是:$youngestname,他的年龄是:$youngestage岁。"
 }
 
