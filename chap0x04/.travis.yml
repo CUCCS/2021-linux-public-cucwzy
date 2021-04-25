@@ -1,0 +1,41 @@
+language: bash
+
+before_install:
+        - sudo apt-get update && sudo apt install shellcheck
+        - sudo apt install imagemagick
+        - sudo apt install p7zip-full
+
+scirpt:
+        - echo "task-1"
+        - shellcheck task1.sh
+        - echo ":===================================:"
+        - bash shell/task1.sh -h
+        - bash shell/task1.sh -a ./img 80
+        - bash shell/task1.sh -b ./img 50%
+        - bash shell/task1.sh -c ./img "wzywzy" 
+        - bash shell/task1.sh -d ./img "-rename"
+        - bash shell/task1.sh -e ./img
+        - echo ":===================================:"
+        - echo "task-2"
+        - shellcheck task2-worldcup.sh
+        - echo ":===================================:"
+        - bash shell/task2-worldcup.sh -h
+        - bash shell/task2-worldcup.sh -a
+        - bash shell/task2-worldcup.sh -b
+        - bash shell/task2-worldcup.sh -c
+        - bash shell/task2-worldcup.sh -d
+        - echo ":===================================:"        
+        - echo "task-3"
+        - shellcheck task3-weblog.sh
+        - echo ":===================================:"
+        - bash shell/task3-weblog.sh -h
+        - bash shell/task3-weblog.sh -a
+        - bash shell/task3-weblog.sh -b
+        - bash shell/task3-weblog.sh -c
+        - bash shell/task3-weblog.sh -d
+        - bash shell/task3-weblog.sh -e
+        - bash shell/task3-weblog.sh -f URL
+       
+notifications:
+  email:
+    on_success: never
