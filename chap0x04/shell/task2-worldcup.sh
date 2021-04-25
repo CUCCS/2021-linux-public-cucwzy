@@ -53,7 +53,7 @@ function get_position()
     Goalie_number=0
     Defender_number=0
     Midfielder_number=0
-	Forward_number=0
+    Forward_number=0
 	
 	for i in $allposition
 	do
