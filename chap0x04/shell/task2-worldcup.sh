@@ -46,14 +46,14 @@ function get_age()
 
 function get_position()
 {
-    player_number=0
+        player_number=0
 	# 所有位置的集合
-    allposition=$(awk -F '\t' '{print $5}' worldcupplayerinfo.tsv)
+        allposition=$(awk -F '\t' '{print $5}' worldcupplayerinfo.tsv)
         
-    Goalie_number=0
-    Defender_number=0
-    Midfielder_number=0
-    Forward_number=0
+        Goalie_number=0
+        Defender_number=0
+        Midfielder_number=0
+        Forward_number=0
 	
 	for i in $allposition
 	do
